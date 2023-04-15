@@ -12,7 +12,6 @@
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs>
-    <a-marker-camera preset='hiro'>
         <a-sphere id="sun" src="model/textures/2k_sun.jpg" position="0 1.8 0" scale="1.5 1.5 1.5" >
           <a-animation attribute="rotation" dur="15000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
         </a-sphere>
@@ -72,7 +71,7 @@
       </a-sphere>
     </a-box>
       <!-- <a-entity gltf-model="model/scene.gltf"></a-entity> -->
-    </a-marker-camera>
+      <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
   </a-box>  
 </body>
