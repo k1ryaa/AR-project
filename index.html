@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <title>AR project</title>
 </head>
 <!-- include A-Frame obviously -->
@@ -11,40 +11,66 @@
 <!-- include ar.js for A-Frame -->
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
-  <script scr="index.js"></script>
   <a-scene embedded arjs>
     <a-marker-camera preset='hiro'>
-      <a-sphere src="model/textures/2k_sun.jpg" position="0 1.8 0" scale="1.5 1.5 1.5" >
-        <a-animation attribute="rotation" dur="15000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
-      </a-sphere>
-      <a-sphere src="model/textures/2k_mercury.jpg" position="1.8 1.8 0" scale="0.05 0.05 0.05" >
+        <a-sphere id="sun" src="model/textures/2k_sun.jpg" position="0 1.8 0" scale="1.5 1.5 1.5" >
+          <a-animation attribute="rotation" dur="15000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-sphere>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="8000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="mercury" src="model/textures/2k_mercury.jpg" position="1.8 1.8 0" scale="0.05 0.05 0.05" >
         <a-animation attribute="rotation" dur="6000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
-      <a-sphere src="model/textures/2k_venus_surface.jpg" position="2.2 1.8 0" scale="0.12 0.12 0.12" >
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="12000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="venus" src="model/textures/2k_venus_surface.jpg" position="2.2 1.8 0" scale="0.12 0.12 0.12" >
         <a-animation attribute="rotation" dur="8000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
-      <a-sphere src="model/textures/2k_earth_daymap.jpg" position="2.7 1.8 0" scale="0.13 0.13 0.13" >
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="20000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="earth" src="model/textures/2k_earth_daymap.jpg" position="2.7 1.8 0" scale="0.13 0.13 0.13" >
         <a-animation attribute="rotation" dur="9000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+        <a-sphere id="moon" src="model/textures/2k_moon.jpg" position="2.75 0 0" scale="0.27 0.27 0.27">
+          <a-animation attribute="rotation" dur="6000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+        </a-sphere>
       </a-sphere>
-      <a-sphere src="model/textures/2k_mars.jpg" position="3.1 1.8 0" scale="0.07 0.07 0.07" >
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="24000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="mars" src="model/textures/2k_mars.jpg" position="3.1 1.8 0" scale="0.07 0.07 0.07" >
         <a-animation attribute="rotation" dur="7000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
+    </a-box>
       <!-- <a-torus src="model/textures/asteroid-belt-png-16.png" position="0 1.8 0" rotation="90 0 0" radius="3.6" radius-tubular="0.13"></a-torus> -->
-      <a-sphere src="model/textures/2k_jupiter.jpg" position="4.4 1.8 0" scale="0.83 0.83 0.83" >
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="30000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="jupiter" src="model/textures/2k_jupiter.jpg" position="4.4 1.8 0" scale="0.83 0.83 0.83" >
         <a-animation attribute="rotation" dur="12000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
-      <a-sphere src="model/textures/2k_saturn.jpg" position="6.5 1.8 0" rotate="15 360 0" scale="0.67 0.67 0.67" >
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="35000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="saturn" src="model/textures/2k_saturn.jpg" position="6.5 1.8 0" rotate="15 360 0" scale="0.67 0.67 0.67" >
         <a-animation attribute="rotation" dur="10000" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
-      <a-torus src="model/textures/2k_saturn_ring_alpha.png" position="6.5 1.8 0" rotation="110 0 0" radius="0.9" radius-tubular="0.07" scale="1 1 0">
+      <a-torus id="saturn_ring" src="model/textures/2k_saturn_ring_alpha.png" position="6.5 1.8 0" rotation="110 0 0" radius="0.9" radius-tubular="0.07" scale="1 1 0">
         <a-animation attribute="rotation" dur="9000" to="110 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-torus>
-      <a-sphere src="model/textures/2k_uranus.jpg" position="8 1.8 0" rotate="15 360 0" scale="0.3 0.3 0.3" >
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="40000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="uranus" src="model/textures/2k_uranus.jpg" position="8 1.8 0" rotate="15 360 0" scale="0.3 0.3 0.3" >
         <a-animation attribute="rotation" dur="8000" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
-      <a-sphere src="model/textures/2k_neptune.jpg" position="8.8 1.8 0" rotate="15 360 0" scale="0.29 0.29 0.29" >
-        <a-animation attribute="rotation" dur="15000" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
+    </a-box>
+    <a-box position="0 0 0" material="opacity: 0">
+      <a-animation attribute="rotation" dur="46000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <a-sphere id="neptune" src="model/textures/2k_neptune.jpg" position="8.8 1.8 0" rotate="15 360 0" scale="0.29 0.29 0.29" >
+        <a-animation attribute="rotation" dur="7500" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
+    </a-box>
       <!-- <a-entity gltf-model="model/scene.gltf"></a-entity> -->
     </a-marker-camera>
   </a-scene>
