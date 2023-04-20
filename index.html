@@ -1,77 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
+  <!-- Объявлем метаданные для правильной работы сайта  -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <!-- Заголовок проекта -->
   <title>AR project</title>
 </head>
-<!-- include A-Frame obviously -->
+<!-- Подключаем A-Frame фреймворк для работы с 3D простсранством -->
 <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<!-- include ar.js for A-Frame -->
+<!-- Подключаем AR.js фреймворк для работы с дополненой реальностью -->
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<!-- Объявлем стили основно содержимого сайта (отступы, скролл) -->
 <body style='margin : 0px; overflow: hidden;'>
+  <!-- Создаём сцену, где будет происходить работа с 3D -->
   <a-scene embedded arjs>
+        <!-- Создание примитива сферы для создания Солнца -->
         <a-sphere id="sun" src="model/textures/2k_sun.jpg" position="0 1.8 0" scale="1.5 1.5 1.5" >
+          <!-- Анимирование движения Солнца вокруг своей оси -->
           <a-animation attribute="rotation" dur="15000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
         </a-sphere>
+    <!-- Создаём родительский элемент для меркурия -->
     <a-box position="0 0 0" material="opacity: 0">
+      <!-- Анимирование движения Меркурия вокруг солнца -->
       <a-animation attribute="rotation" dur="8000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Меркурия -->
       <a-sphere id="mercury" src="model/textures/2k_mercury.jpg" position="1.8 1.8 0" scale="0.05 0.05 0.05" >
+        <!-- Анимирование движения Меркурия вокруг своей оси -->
         <a-animation attribute="rotation" dur="6000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
+    <!-- Создаём родительский элемент для Венеры -->
     <a-box position="0 0 0" material="opacity: 0">
+      <!-- Анимирование движения Венеры вокруг солнца -->
       <a-animation attribute="rotation" dur="12000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Венеры -->
       <a-sphere id="venus" src="model/textures/2k_venus_surface.jpg" position="2.2 1.8 0" scale="0.12 0.12 0.12" >
+        <!-- Анимирование движения Венеры вокруг своей оси -->
         <a-animation attribute="rotation" dur="8000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
+     <!-- Создаём родительский элемент для Земли -->
     <a-box position="0 0 0" material="opacity: 0">
+      <!-- Анимирование движения Земли и Луны вокруг солнца -->
       <a-animation attribute="rotation" dur="20000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Земли -->
       <a-sphere id="earth" src="model/textures/2k_earth_daymap.jpg" position="2.7 1.8 0" scale="0.13 0.13 0.13" >
+        <!-- Анимирование движения Земли вокруг своей оси и Луны вокруг Земли -->
         <a-animation attribute="rotation" dur="9000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
         <a-sphere id="moon" src="model/textures/2k_moon.jpg" position="2.75 0 0" scale="0.27 0.27 0.27">
+           <!-- Анимирование движения Луны вокруг своей оси-->
           <a-animation attribute="rotation" dur="6000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
         </a-sphere>
       </a-sphere>
     </a-box>
+    <!-- Создаём родительский элемент для Марса -->
     <a-box position="0 0 0" material="opacity: 0">
+      <!-- Анимирование движения Марса вокруг солнца -->
       <a-animation attribute="rotation" dur="24000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Марса -->
       <a-sphere id="mars" src="model/textures/2k_mars.jpg" position="3.1 1.8 0" scale="0.07 0.07 0.07" >
+        <!-- Анимирование движения Марса вокруг своей оси -->
         <a-animation attribute="rotation" dur="7000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
       <!-- <a-torus src="model/textures/asteroid-belt-png-16.png" position="0 1.8 0" rotation="90 0 0" radius="3.6" radius-tubular="0.13"></a-torus> -->
+      <!-- Создаём родительский элемент для Юпитера -->
     <a-box position="0 0 0" material="opacity: 0">
+       <!-- Анимирование движения Юпитера вокруг солнца -->
       <a-animation attribute="rotation" dur="30000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Юпитера -->
       <a-sphere id="jupiter" src="model/textures/2k_jupiter.jpg" position="4.4 1.8 0" scale="0.83 0.83 0.83" >
+        <!-- Анимирование движения Юпитера вокруг своей оси -->
         <a-animation attribute="rotation" dur="12000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
+    <!-- Создаём родительский элемент для Сатурна и его колец -->
     <a-box position="0 0 0" material="opacity: 0">
+      <!-- Анимирование движения Сатурна и его колец вокруг солнца -->
       <a-animation attribute="rotation" dur="35000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Сатурна -->
       <a-sphere id="saturn" src="model/textures/2k_saturn.jpg" position="6.5 1.8 0" rotate="15 360 0" scale="0.67 0.67 0.67" >
+        <!-- Анимирование движения Сатурна вокруг своей оси -->
         <a-animation attribute="rotation" dur="10000" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
+      <!-- Создание примитива сферы для колец Сатурна -->
       <a-torus id="saturn_ring" src="model/textures/2k_saturn_ring_alpha.png" position="6.5 1.8 0" rotation="110 0 0" radius="0.9" radius-tubular="0.07" scale="1 1 0">
+        <!-- Анимирование движения колец Сатурна вокруг своей оси -->
         <a-animation attribute="rotation" dur="9000" to="110 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-torus>
     </a-box>
+    <!-- Создаём родительский элемент для Урана-->
     <a-box position="0 0 0" material="opacity: 0">
+         <!-- Анимирование движения Урана вокруг солнца -->
       <a-animation attribute="rotation" dur="40000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+        <!-- Создание примитива сферы для Урана -->
       <a-sphere id="uranus" src="model/textures/2k_uranus.jpg" position="8 1.8 0" rotate="15 360 0" scale="0.3 0.3 0.3" >
+        <!-- Анимирование движения колец Урана вокруг своей оси -->
         <a-animation attribute="rotation" dur="8000" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
+     <!-- Создаём родительский элемент для Нептуна-->
     <a-box position="0 0 0" material="opacity: 0">
+       <!-- Анимирование движения Нептун вокруг солнца -->
       <a-animation attribute="rotation" dur="46000" to="0 360 0" easing="linear" repeat="indefinite"></a-animation>
+      <!-- Создание примитива сферы для Нептуна -->
       <a-sphere id="neptune" src="model/textures/2k_neptune.jpg" position="8.8 1.8 0" rotate="15 360 0" scale="0.29 0.29 0.29" >
+        <!-- Анимирование движения колец Нептуна вокруг своей оси -->
         <a-animation attribute="rotation" dur="7500" to="15 360 0" easing="linear" repeat="indefinite"></a-animation>
       </a-sphere>
     </a-box>
       <!-- <a-entity gltf-model="model/scene.gltf"></a-entity> -->
-      <a-marker-camera preset='hiro'></a-marker-camera>
+      <!-- Указание маркера, к которому будет привязывать модель -->
+      <a-marker-camera preset='custom' type="pattern" url="marker/pattern-KAI.patt"></a-marker-camera>
   </a-scene>
   </a-box>  
 </body>
